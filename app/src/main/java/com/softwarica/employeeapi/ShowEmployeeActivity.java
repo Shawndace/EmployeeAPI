@@ -30,12 +30,14 @@ public class ShowEmployeeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_employee);
         tvOutput = findViewById(R.id.tvOutput);
 
-        Retrofit retrofit = new Retrofit.Builder()
+       /* Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl(URL.base_url)
                             .addConverterFactory(GsonConverterFactory.create())
-                            .build();
+                            .build(); */
+        EmployeeAPI employeeAPI = URL.createInstance().create
+                (EmployeeAPI.class);
 
-        EmployeeAPI employeeAPI = retrofit.create(EmployeeAPI.class);
+//        EmployeeAPI employeeAPI = retrofit.create(EmployeeAPI.class);
 
         Call<List<Employee>> listCall = employeeAPI.getAllEmployees();
 
